@@ -50,7 +50,7 @@ div.header {
     background-color: #2b2929;
 }
 
-table.header {
+table {
     width: 100%;
 }
 
@@ -62,4 +62,15 @@ img.background {
 
 div.content {
     z-index: 1;
+}
+
+div.footer {
+    font-size: 20px;
+    font-weight: 10;
+    font-family: monospace;
+    text-align: center;
+    color: #ffffff;
+    opacity: 0.6;
+    z-index: -1;
+    width: 100%;
 }
