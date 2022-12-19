@@ -7,7 +7,9 @@
         <link rel="stylesheet" href="styles-desktop.css"/>
         <script src="scripts.js"></script>
         <script>
-            //ADD MOBILE DETECTION
+            if (navigator.userAgentData.mobile == true) {
+                document.location = "mainfesto-mobile.html";
+            };
         </script>
     </head>
     <body>
@@ -38,13 +40,7 @@
                 </tr>
             </table>
         </div>
-        <div class="content" style="width: 75%;
-                                    margin-right: auto; 
-                                    margin-left: auto;
-                                    background-color: #464242;
-                                    margin-top: 100px;
-                                    border-radius: 10%;
-                                    opacity: 0.6">
+        <div class="content">
             <h1>
                 The Manifesto of the Ransome Party:
             </h1>

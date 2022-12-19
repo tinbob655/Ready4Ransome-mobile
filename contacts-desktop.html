@@ -7,7 +7,54 @@
         <link rel="stylesheet" href="styles-desktop.css"/>
         <script src="scripts.js"></script>
         <script>
-            //ADD MOBILE DETECTION
+            if (navigator.userAgentData.mobile == true) {
+                document.location = "contacts-mobile.html";
+            };
         </script>
     </head>
+    <body>
+        <div class="header">
+            <table>
+                <tr>
+                    <th>
+                        <h2>
+                            <a href="manifesto-desktop.html">
+                                Mainfesto
+                            </a>
+                        </h2>
+                    </th>
+                    <th>
+                        <h2>
+                            <a href="index.html">
+                                Home
+                            </a>
+                        </h2>
+                    </th>
+                    <th>
+                        <h2>
+                            <a href="shop-desktop.html">
+                                Shop
+                            </a>
+                        </h2>
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <div class="content">
+            <table>
+                <tr>
+                    <th colspan="2">
+                        <h1>
+                            Mr Ransome can be contacted. Don't expect a half decent responce tho
+                        </h1>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
 </html>

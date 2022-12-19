@@ -7,7 +7,9 @@
         <link rel="stylesheet" href="styles-desktop.css"/>
         <script src="scripts.js"></script>
         <script>
-            //ADD MOBILE DETECTION
+            if (navigator.userAgentData.mobile == true) {
+                document.locaiton = "shop-mobile.html";
+            };
         </script>
     </head>
     <body>
