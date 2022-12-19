@@ -61,7 +61,6 @@ div.content {
     animation-iteration-count: 1;
     animation-direction: forwards;
     padding: 10px;
-    box-shadow: 0 0 10px 5px #464242;
 }
 
 div.footer {
