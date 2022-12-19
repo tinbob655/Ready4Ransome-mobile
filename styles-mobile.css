@@ -1,0 +1,107 @@
+body {
+    background-color: #2b2929;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    font-family: garamond;
+    font-size: 100px;
+    font-weight: 100;
+    color: #d4b500;
+    text-align: center;
+}
+
+h2 {
+    font-family: garamond;
+    font-size: 95px;
+    font-weight: 400;
+    color: #a3d615;
+    text-align: center;
+}
+
+p {
+    font-family: tahoma;
+    font-size: 70px;
+    font-weight: 200;
+    color: #5dddcc;
+    text-align: center;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+    transition-property: color, font-size;
+    transition-duration: 0.5s;
+}
+
+a:hover {
+    color: #a5dbd4;
+    font-size: 100px;
+}
+
+div.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    background-color: #2b2929;
+    box-shadow: 0 0  10px 50px #2b2929;
+}
+
+div.content {
+    z-index: 1;
+    margin: 200px auto 30px auto;
+    width: 75%;
+    background-color: #464242;
+    border-radius: 10%;
+    animation-name: fadin;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-direction: forwards;
+    padding: 10px;
+    box-shadow: 0 0 10px 5px #464242;
+}
+
+div.footer {
+    font-size: 50px;
+    font-weight: 10;
+    font-family: monospace;
+    text-align: center;
+    color: #ffffff;
+    opacity: 0.6;
+    z-index: -1;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+}
+
+img.background {
+    width: 100%;
+    z-index: 0;
+    position: relative;
+}
+
+img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+img.footer {
+    border-radius: 50%;
+    height: 100px;
+}
+
+@keyframes fadin {
+    from {
+        opacity: 0.0;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
