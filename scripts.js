@@ -5,5 +5,9 @@ window.onscroll = function scrolled() {
     }
     else if (window.scrollY <= document.getElementById('background').height-20) {
         document.getElementById('header').classList.remove('header');
-    }
-}
+    };
+};
+
+document.getElementById('audio').onended = function audio_stopped() {
+    alert("stopped");
+};

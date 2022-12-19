@@ -7,8 +7,13 @@
         <link rel="stylesheet" href="styles-desktop.css"/>
         <script src="scripts.js"></script>
         <script>
-            //ADD MOBILE DETECTION
+            if (navigator.userAgentData.mobile == true) {
+                document.location = "index-mobile.html";
+            };
         </script>
+        <audio autoplay="true" loop="true">
+            <source src="music/Alex Comp 1 Remix (mp3).mp3" type="audio/mp3"/>
+        </audio>
     </head>
     <body>
         <img src="images/ready4ransome main.jpg" id="background" class="background"/>
@@ -39,15 +44,16 @@
                 </tr>
             </table>
         </div>
-        <div class="content" style="margin-top: 500px;">
+        <div class="content">
             <h1>
                 Are you Ready4Ransome?
             </h1>
             <p>
                 We are. The next up and coming prime minister's official site is right here
             </p>
-            <p style="margin-bottom: 1000px;">
-                Example content and margin
+            <p>
+                Mr Ransome will one day own your land, your buisiness and most likley you. Better start getting
+                friendly with him then. Best way to do that: buy something from the shop
             </p>
         </div>
         <div class="footer">
