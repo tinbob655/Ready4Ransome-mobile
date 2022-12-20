@@ -52,8 +52,7 @@ div.header {
 
 div.content {
     z-index: 1;
-    display: inline;
-    margin: 200px auto 30px auto; 
+    margin: 200px 25vw 30px 25vw; 
     width: 75%;
     background-color: #464242;
     border-radius: 100px;
