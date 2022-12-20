@@ -95,6 +95,8 @@ img {
 img.footer {
     border-radius: 50%;
     height: 70px;
+    width: 70px;
+    object-fit: cover;
 }
 
 @keyframes fadin {
