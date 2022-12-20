@@ -52,7 +52,7 @@ div.header {
 
 div.content {
     z-index: 1;
-    margin: 800px auto 30px auto;
+    margin: 50vh auto 30px auto;
     width: 75%;
     background-color: #464242;
     border-radius: 10%;
