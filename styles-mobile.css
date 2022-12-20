@@ -52,8 +52,9 @@ div.header {
 
 div.content {
     z-index: 1;
+    position: relative;
     margin: 300px auto 30px auto;
-    width: 100vw;
+    width: 75%;
     background-color: #464242;
     border-radius: 10%;
     animation-name: fadin;
