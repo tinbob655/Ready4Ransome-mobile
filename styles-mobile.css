@@ -52,7 +52,7 @@ div.header {
 
 div.content {
     z-index: 1;
-    margin: 400px auto 30px auto;
+    margin: 500px auto 30px auto;
     width: 75%;
     background-color: #464242;
     border-radius: 10%;
@@ -90,8 +90,8 @@ img {
 
 img.footer {
     border-radius: 50%;
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
     object-fit: cover;
 }
 
