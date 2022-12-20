@@ -52,7 +52,7 @@ div.header {
 
 div.content {
     z-index: 1;
-    display: block;
+    display: inline;
     margin: 200px auto 30px auto; 
     width: 75%;
     background-color: #464242;
@@ -74,10 +74,6 @@ div.footer {
     z-index: -1;
     width: 100%;
     margin-bottom: 10px;
-    animation-name: fadin;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-direction: forwards;
 }
 
 table {
