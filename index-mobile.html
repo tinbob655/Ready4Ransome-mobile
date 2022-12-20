@@ -5,17 +5,23 @@
             Ready4Ransome
         </title>
         <link rel="stylesheet" href="styles-mobile.css"/>
+        <script src="scripts-mobile.js"></script>
         <script>
-            if (navigator.userAgentData.mobile == false) {
-                document.location = "index.html";
-            };
+            //if (navigator.userAgentData.mobile == false) {
+            //    document.location = "index.html";
+            //};
         </script>
         <audio autoplay="true" loop="true">
             <source src="music/Alex Comp 1 Remix (mp3).mp3" type="audio/mp3"/>
         </audio>
     </head>
     <body>
-        <div class="header">
+        <button type="button" onclick="header_toggled()">
+            <p>
+                Show links
+            </p>
+        </button>
+        <div class="header" id="header">
             <h2>
                 <a href="contacts-mobile.html">
                     Contacts

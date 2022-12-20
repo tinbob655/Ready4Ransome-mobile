@@ -42,12 +42,31 @@ a:hover {
 
 div.header {
     position: fixed;
-    top: 0;
+    top: 30vh;
     left: 0;
-    width: 100%;
     z-index: 2;
+    width: 100%;
     background-color: #2b2929;
     box-shadow: 0 0  10px 50px #2b2929;
+    height: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    transition-property: height;
+    transition-duration: 1s;
+    overflow: hidden;
+}
+
+div.header.opened {
+    height: 50vh;
+}
+
+button {
+    background-color: #2b2929;
+    box-shadow: 0 0  10px 50px #2b2929;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    border: none;
 }
 
 div.content {
