@@ -52,7 +52,7 @@ div.header {
 
 div.content {
     z-index: 1;
-    margin: 200px auto 30px auto;
+    margin: 350px auto 30px auto;
     width: 75%;
     background-color: #464242;
     border-radius: 10%;
@@ -79,10 +79,11 @@ table {
     width: 100%;
 }
 
-img.background {
+img.fade-with-scroll {
+    top: 0;
     width: 100%;
-    z-index: 0;
-    position: relative;
+    height: auto;
+    z-index: 3;
 }
 
 img {

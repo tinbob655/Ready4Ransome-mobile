@@ -7,7 +7,3 @@ window.onscroll = function scrolled() {
         document.getElementById('header').classList.remove('header');
     };
 };
-
-document.getElementById('audio').onended = function audio_stopped() {
-    alert("stopped");
-};
