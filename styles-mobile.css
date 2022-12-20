@@ -10,7 +10,6 @@ h1 {
     font-weight: 100;
     color: #d4b500;
     text-align: center;
-    max-width: fit-content;
 }
 
 h2 {
@@ -54,7 +53,7 @@ div.header {
 div.content {
     z-index: 1;
     margin: 300px auto 30px auto;
-    width: 75%;
+    width: 100vw;
     background-color: #464242;
     border-radius: 10%;
     animation-name: fadin;
