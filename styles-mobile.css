@@ -77,17 +77,21 @@ div.footer {
 
 table {
     width: 100%;
+    background: #ffffff;
 }
 
 img {
     display: block;
     margin-right: auto;
     margin-left: auto;
+    max-width: 100%;
 }
 
 img.footer {
     border-radius: 50%;
     height: 100px;
+    width: 100px;
+    object-fit: cover;
 }
 
 @keyframes fadin {
