@@ -57,7 +57,7 @@ div.header {
 }
 
 div.header.opened {
-    height: 30vh;
+    height: 10vh;
     background-color: #2b2929;
 }
 
@@ -72,7 +72,7 @@ button {
 
 div.content {
     z-index: 1;
-    margin: 10vh auto 30px auto;
+    margin: 20vh auto 30px auto;
     width: 90%;
     background-color: #464242;
     border-radius: 10%;
