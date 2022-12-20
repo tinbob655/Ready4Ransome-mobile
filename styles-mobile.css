@@ -42,7 +42,7 @@ a:hover {
 
 div.header {
     position: fixed;
-    top: 10vh;
+    top: 5vh;
     left: 0;
     z-index: 2;
     width: 100%;
@@ -51,13 +51,13 @@ div.header {
     height: 0px;
     margin-right: auto;
     margin-left: auto;
-    transition-property: height;
+    transition-property: height background-color;
     transition-duration: 1s;
     overflow: hidden;
 }
 
 div.header.opened {
-    height: 10vh;
+    height: 30vh;
     background-color: #2b2929;
 }
 
@@ -72,7 +72,7 @@ button {
 
 div.content {
     z-index: 1;
-    margin: 20vh auto 30px auto;
+    margin: 30vh auto 30px auto;
     width: 90%;
     background-color: #464242;
     border-radius: 10%;
