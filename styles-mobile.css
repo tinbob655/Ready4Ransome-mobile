@@ -42,7 +42,7 @@ a:hover {
 
 div.header {
     position: fixed;
-    top: 5vh;
+    top: 10vh;
     left: 0;
     z-index: 2;
     width: 100%;
