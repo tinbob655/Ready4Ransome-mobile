@@ -13,3 +13,17 @@ window.onscroll = function scrolled() {
 function header_toggled() {
     document.getElementById('header').classList.toggle('open');
 };
+
+function gallery_move_left() {
+    document.getElementById('gallery').style.opacity = '0.0';
+    setTimeout(() => {
+        //move the images along
+    }, 500);
+};
+
+function gallery_move_right() {
+    document.getElementById('gallery').style.opacity = '1.0';
+    setTimeout(() => {
+        //move the images along
+    }, 500);
+};
