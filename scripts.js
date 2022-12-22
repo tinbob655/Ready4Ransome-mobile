@@ -60,4 +60,12 @@ function gallery_move() {
     }, 700);
 };
 
+window.onclick = function clicked() {
+    document.getElementById('audio').play();
+};
+
+function introbox_cleared() {
+    document.getElementById('introbox').classList.add('cleared');
+};
+ 
 var gallery_num = 1;

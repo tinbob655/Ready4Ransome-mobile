@@ -12,11 +12,18 @@
                 document.location = "index-mobile.html";
             };
         </script>
-        <audio autoplay="true" loop="true">
+        <audio autoplay="true" loop="true" id="audio">
             <source src="music/Alex Comp 1 Remix (mp3).mp3" type="audio/mp3"/>
         </audio>
     </head>
     <body>
+        <div class="introbox" id="introbox">
+            <button onclick="introbox_cleared()" type="button">
+                <h1 style="margin-top: 40vh;">
+                    Please Click to confirm you support Ready 4 Ransome
+                </h1>
+            </button>
+        </div>
         <img src="images/r4r main.jpg" id="background" class="background"/>
         <button onclick="header_toggled()" type="button" id="button-header">
             <img src="images/interactive elements/Menu Button.png" style="width: 5vw;"/>
