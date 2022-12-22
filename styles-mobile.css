@@ -98,6 +98,24 @@ div.footer {
     word-wrap: break-word;
 }
 
+div.introbox {
+    position: fixed;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    opacity: 1.0;
+    visibility: visible;
+    background-color: #2b2929;
+    transition-property: background-color opacity;
+    transition-duration: 1s;
+}
+
+div.introbox.cleared {
+    visibility: hidden;
+    background: transparent;
+    opacity: 0.0;
+}
+
 table {
     width: 100%;
     table-layout: fixed;
