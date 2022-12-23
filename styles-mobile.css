@@ -47,11 +47,10 @@ div.header {
     z-index: 2;
     width: 100%;
     background-color: transparent;
-    box-shadow: 0 0  10px 50px #2b2929;
     height: 0px;
     margin-right: auto;
     margin-left: auto;
-    transition-property: height background-color;
+    transition-property: height background-color box-shadow;
     transition-duration: 1s;
     overflow: hidden;
 }
@@ -59,6 +58,7 @@ div.header {
 div.header.opened {
     height: 30vh;
     background-color: #2b2929;
+    box-shadow: 0 0  10px 50px #2b2929;
 }
 
 button {
