@@ -116,9 +116,9 @@ div.introbox {
 }
 
 div.introbox.cleared {
-    visibility: hidden;
-    background: transparent;
     opacity: 0.0;
+    visibility: hidden;
+    background-color: transparent;
 }
 
 table {
