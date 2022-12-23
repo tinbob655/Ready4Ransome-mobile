@@ -10,6 +10,7 @@ h1 {
     font-weight: 100;
     color: #d4b500;
     text-align: center;
+    word-wrap: break-word;
 }
 
 h2 {
@@ -18,6 +19,7 @@ h2 {
     font-weight: 400;
     color: #a3d615;
     text-align: center;
+    word-wrap: break-word;
 }
 
 p {
@@ -26,6 +28,7 @@ p {
     font-weight: 200;
     color: #5dddcc;
     text-align: center;
+    word-wrap: break-word;
 }
 
 a{
@@ -89,6 +92,7 @@ div.content {
     animation-iteration-count: 1;
     animation-direction: forwards;
     padding: 10px;
+    overflow: hidden;
 }
 
 div.footer {
@@ -101,6 +105,7 @@ div.footer {
     z-index: -1;
     width: 100%;
     margin-bottom: 10px;
+    word-wrap: break-word;
 }
 
 div.introbox {
