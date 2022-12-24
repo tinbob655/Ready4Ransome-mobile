@@ -10,7 +10,7 @@ function init() {
         };
         document.location = filename;
     };
-}
+};
 
 if (document.location.pathname == '/index.html') {
     window.onscroll = function scrolled() {
