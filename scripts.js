@@ -53,14 +53,16 @@ function is_in_bounds (lower_bound, upper_bound, input) {
 };
 
 function gallery_refresh() {
-    gallery_num = 1;
-    document.getElementById('gallery').style.opacity = 0.0;
-    setTimeout(() => {
-        document.getElementById('image1').src = gallery_images[0];
-        document.getElementById('image2').src = gallery_images[1];
-        document.getElementById('image3').src = gallery_images[2];
-        document.getElementById('gallery').style.opacity = 1.0;
-    }, 700);
+    if (!document.getElementById('image1').src.includes('black%20hoodie')) {
+        gallery_num = 1;
+        document.getElementById('gallery').style.opacity = 0.0;
+        setTimeout(() => {
+            document.getElementById('image1').src = gallery_images[0];
+            document.getElementById('image2').src = gallery_images[1];
+            document.getElementById('image3').src = gallery_images[2];
+            document.getElementById('gallery').style.opacity = 1.0;
+        }, 700);
+    };
 };
 
 function gallery_move() {
