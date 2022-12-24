@@ -76,7 +76,7 @@ button.menu {
     left: auto;
     right: auto;
     top: 0;
-    z-index: 3;
+    z-index: -1;
 }
 
 div.content {

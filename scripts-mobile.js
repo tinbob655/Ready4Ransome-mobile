@@ -15,6 +15,7 @@ function header_toggled () {
 
 function introbox_cleared() {
     document.getElementById('introbox').classList.add('cleared');
+    document.getElementsByClassName('menu').style.zIndex = 3;
     document.getElementById('audio').play();
 };
 
