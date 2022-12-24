@@ -137,7 +137,8 @@ img {
 }
 
 img.small {
-    height: 100px;
+    width: 100px;
+    height: auto;
 }
 
 img.footer {
