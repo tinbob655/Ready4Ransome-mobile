@@ -1,3 +1,17 @@
+function init() {
+    if (navigator.userAgentData.mobile == true) {
+        var HTMLfilename = document.location.href;
+        var filename = HTMLfilename.substring(HTMLfilename.lastIndexOf('/') + 1);
+        if (filename = 'index.html') {
+            filename = 'index-mobile.html';
+        }
+        else {
+            filename = filename.replace('desktop', 'mobile');
+        };
+        document.location = filename;
+    };
+}
+
 if (document.location.pathname == '/index.html') {
     window.onscroll = function scrolled() {
         document.getElementById('background').style.opacity = (0.8-window.scrollY/document.documentElement.scrollHeight*3);
@@ -66,3 +80,5 @@ function introbox_cleared() {
 };
  
 var gallery_num = 1;
+
+window.onload = init();
