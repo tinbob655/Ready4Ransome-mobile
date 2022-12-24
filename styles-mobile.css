@@ -62,12 +62,21 @@ div.header.opened {
 }
 
 button {
-    background-color: #2b2929;
-    box-shadow: 0 0  10px 50px #2b2929;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+button.menu {
     position: fixed;
-    width: 100%;
+    background-color: #2b2929;
+    box-shadow: 0 1vh 10px 40px #2b2929;
+    width: 100vw;
+    left: auto;
+    right: auto;
     top: 0;
-    border: none;
+    z-index: 3;
 }
 
 div.content {
@@ -118,8 +127,6 @@ div.introbox.cleared {
 
 table {
     width: 100%;
-    table-layout: fixed;
-    word-wrap: break-word;
 }
 
 img {
@@ -127,6 +134,10 @@ img {
     margin-right: auto;
     margin-left: auto;
     max-width: 100%;
+}
+
+img.small {
+    height: 100px;
 }
 
 img.footer {

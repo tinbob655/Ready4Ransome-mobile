@@ -18,4 +18,7 @@ function introbox_cleared() {
     document.getElementById('audio').play();
 };
 
-window.onload = init();
+function gallery_refresh() {
+};
+
+//window.onload = init();
