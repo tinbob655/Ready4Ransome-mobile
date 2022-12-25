@@ -15,7 +15,7 @@ function header_toggled () {
 
 function introbox_cleared() {
     document.getElementById('introbox').classList.add('cleared');
-    document.getElementById('menu').style.visibility = 'visible';
+    document.getElementById('menu-button-content').style.color = '#5dddcc';
     document.getElementById('audio').play();
 };
 
