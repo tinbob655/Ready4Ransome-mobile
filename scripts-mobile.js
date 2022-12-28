@@ -71,4 +71,4 @@ const gallery_images = [
 
 var gallery_num = 1;
 
-window.onload = init();
+init();
