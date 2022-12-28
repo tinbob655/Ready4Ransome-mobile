@@ -60,8 +60,10 @@ function gallery_refresh() {
             document.getElementById('image1').src = gallery_images[0];
             document.getElementById('image2').src = gallery_images[1];
             document.getElementById('image3').src = gallery_images[2];
-            document.getElementById('gallery').style.opacity = 1.0;
-        }, 700);
+            setTimeout(() => {
+                document.getElementById('gallery').style.opacity = 1.0;
+            }, 500);
+        }, 500);
     };
 };
 
@@ -72,8 +74,10 @@ function gallery_move() {
         document.getElementById('image2').src = gallery_images[is_in_bounds(0, 8, gallery_num%9 +1)];
         document.getElementById('image3').src = gallery_images[is_in_bounds(0, 8, gallery_num%9 +2)];
         gallery_num++;
-        document.getElementById('gallery').style.opacity = 1.0;
-    }, 700);
+        setTimeout(() => {
+            document.getElementById('gallery').style.opacity = 1.0;
+        }, 500);
+    }, 500);
 };
 
 function introbox_cleared() {
