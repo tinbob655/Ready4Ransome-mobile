@@ -152,6 +152,7 @@ img.footer {
 
 img.small {
     height: 70px;
+    width: 80px;
 }
 
 @keyframes fadin {
