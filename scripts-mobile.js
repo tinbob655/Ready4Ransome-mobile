@@ -17,7 +17,6 @@ function introbox_cleared() {
     document.getElementById('introbox').classList.add('cleared');
     document.getElementById('menu-button-content').style.color = '#5dddcc';
     document.getElementById('audio').play();
-    document.getElementById('audio').volume = 0.2;
 };
 
 function is_in_bounds(lower_bound, upper_bound, input) {

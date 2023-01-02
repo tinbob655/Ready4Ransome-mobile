@@ -83,7 +83,6 @@ function gallery_move() {
 function introbox_cleared() {
     document.getElementById('introbox').classList.add('cleared');
     document.getElementById('audio').play();
-    document.getElementById('audio').volume = 0.2;
 };
  
 var gallery_num = 1;
