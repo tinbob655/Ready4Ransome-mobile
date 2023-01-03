@@ -83,11 +83,12 @@ div.content {
     margin: 20vh auto 30px auto;
     width: 90%;
     background-color: #464242;
-    border-radius: 10%;
+    border-radius: 150px;
     animation-name: fadin;
     animation-duration: 1s;
     animation-iteration-count: 1;
     animation-direction: forwards;
+    overflow: hidden;
     padding: 10px;
 }
 
