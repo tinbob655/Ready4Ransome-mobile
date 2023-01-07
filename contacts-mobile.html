@@ -6,15 +6,13 @@
         </title>
         <link rel="stylesheet" href="styles-mobile.css"/>
         <script src="scripts-mobile.js"></script>
-        <audio autoplay="true" loop="true">
-            <source src="music/R4R theme.mp3" type="audio/mp3"/>
+        <audio id="audio" onended="next_track()">
+            <source src="" type="audio/mp3"/>
         </audio>
     </head>
     <body>
         <button onclick="header_toggled()" type="button" class="menu" id="menu">
-            <p>
-                Toggle links
-            </p>
+            <img src="images/interactive elements/Alt Menu Button.png"/>
         </button>
         <div class="header" id="header">
             <h2>

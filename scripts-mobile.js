@@ -9,6 +9,21 @@ function init() {
     };
 };
 
+function next_track() {
+    const audio = document.getElementById('audio');
+    audio.pause();
+    if (track%2 == 0) {
+        audio.src = 'music/R4R theme.mp3';
+    }
+    else {
+        audio.src = 'music/March Of Leader Ransome.mp3';
+    };
+    track++;
+    setTimeout(() => {
+        audio.play();
+    }, 500);
+};
+
 function header_toggled () {
     document.getElementById('header').classList.toggle('opened');
 };
@@ -16,7 +31,11 @@ function header_toggled () {
 function introbox_cleared() {
     document.getElementById('introbox').classList.add('cleared');
     document.getElementById('menu-button-content').style.color = '#5dddcc';
-    document.getElementById('audio').play();
+    next_track();
+    setTimeout(() => {
+        document.getElementById('introbox').style.width = 0;
+        document.getElementById('introbox').style.height = 0;
+    }, 1001);
 };
 
 function is_in_bounds(lower_bound, upper_bound, input) {
@@ -70,5 +89,6 @@ const gallery_images = [
 ];
 
 var gallery_num = 1;
+var track = 0;
 
-init();
+//init();

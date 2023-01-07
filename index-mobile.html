@@ -6,12 +6,12 @@
         </title>
         <link rel="stylesheet" href="styles-mobile.css"/>
         <script src="scripts-mobile.js"></script>
-        <audio autoplay="true" loop="true" id="audio">
-            <source src="music/R4R theme.mp3" type="audio/mp3"/>
+        <audio id="audio" onended="next_track()">
+            <source src="" type="audio/mp3"/>
         </audio>
     </head>
     <body>
-        <div class="introbox" id="introbox" id="audio">
+        <div class="introbox" id="introbox">
             <button onclick="introbox_cleared()" type="button">
                 <h1 style="margin-top: 30vh;">
                     Please tap to confirm you support Ready 4 Ransome
@@ -19,9 +19,7 @@
             </button>
         </div>
         <button type="button" onclick="header_toggled()" class="menu" id="menu">
-            <p id="menu-button-content" style="color: #2b2929;">
-                Toggle links
-            </p>
+            <img src="images/interactive elements/Alt Menu Button.png" id="menu-button-content"/>
         </button>
         <div class="header" id="header">
             <h2>
