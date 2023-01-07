@@ -10,10 +10,17 @@ function init() {
         };
         document.location = filename;
     };
+    console.log(document.location.href.substring(document.location.href.lastIndexOf('/') +1));
+    if (document.location.href.substring(document.location.href.lastIndexOf('/') +1) != 'index.html') {
+        setTimeout(() => {
+            next_track();
+        }, 1000);
+    };
 };
 
 function next_track() {
     const audio = document.getElementById('audio');
+    console.log('fired '+track);
     audio.pause();
     if (track%2 == 0) {
         audio.src = 'music/R4R theme.mp3';
@@ -100,6 +107,6 @@ function introbox_cleared() {
 };
  
 var gallery_num = 1;
-var track = 0;
+var track = Math.floor(Math.random() *2);
 
 init();

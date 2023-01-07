@@ -7,6 +7,11 @@ function init() {
         };
         document.location = filename;
     };
+    if (document.location.href.substring(document.location.href.lastIndexOf('/') +1) != 'index-mobile.html') {
+        setTimeout(() => {
+            next_track()
+        }, 1000);
+    };
 };
 
 function next_track() {
@@ -89,6 +94,6 @@ const gallery_images = [
 ];
 
 var gallery_num = 1;
-var track = 0;
+var track = Math.floor(Math.random() *2);
 
-//init();
+init();
