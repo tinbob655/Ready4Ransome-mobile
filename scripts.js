@@ -12,19 +12,33 @@ function init() {
     };
 };
 
-if (document.location.pathname == '/index.html') {
-    window.onscroll = function scrolled() {
-        document.getElementById('background').style.opacity = (0.8-window.scrollY/document.documentElement.scrollHeight*3);
-        if (window.scrollY > document.getElementById('background').height-20) {
-            document.getElementById('header').classList.add('init');
-            document.getElementById('button-header').classList.add('menu');
-        }
-        else if (window.scrollY <= document.getElementById('background').height-20) {
-            document.getElementById('header').classList.remove('init');
-            document.getElementById('button-header').classList.remove('menu');
-        };
+function next_track() {
+    const audio = document.getElementById('audio');
+    audio.pause();
+    if (track%2 == 0) {
+        audio.src = 'music/R4R theme.mp3';
+    }
+    else {
+        audio.src = 'music/March Of Leader Ransome.mp3';
+    };
+    track++;
+    setTimeout(() => {
+        audio.play();
+    }, 500);
+};
+
+window.onscroll = function scrolled() {
+    document.getElementById('background').style.opacity = (0.8-window.scrollY/document.documentElement.scrollHeight*3);
+    if (window.scrollY > document.getElementById('background').height-20) {
+        document.getElementById('header').classList.add('init');
+        document.getElementById('button-header').classList.add('menu');
+    }
+    else if (window.scrollY <= document.getElementById('background').height-20) {
+        document.getElementById('header').classList.remove('init');
+        document.getElementById('button-header').classList.remove('menu');
     };
 };
+
 
 function header_toggled() {
     document.getElementById('header').classList.toggle('open');
@@ -82,9 +96,10 @@ function gallery_move() {
 
 function introbox_cleared() {
     document.getElementById('introbox').classList.add('cleared');
-    document.getElementById('audio').play();
+    next_track();
 };
  
 var gallery_num = 1;
+var track = 0;
 
 init();
