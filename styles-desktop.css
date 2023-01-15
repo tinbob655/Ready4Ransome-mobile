@@ -2,6 +2,8 @@ body {
     background-color: #2b2929;
     margin: 0px;
     padding: 0px;
+    transition-property: opacity;
+    transition-duration: 1s;
 }
 
 h1 {

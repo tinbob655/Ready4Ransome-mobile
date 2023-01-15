@@ -6,7 +6,7 @@
         </title>
         <link rel="stylesheet" href="styles-mobile.css"/>
         <script src="scripts-mobile.js"></script>
-        <audio id="audio" onended="next_track()">
+        <audio id="audio" onended="next_track('not first')">
             <source src="" type="audio/mp3"/>
         </audio>
     </head>
@@ -22,21 +22,21 @@
             <img src="images/interactive elements/Alt Menu Button.png" id="menu-button-content"/>
         </button>
         <div class="header" id="header">
-            <h2>
-                <a href="contacts-mobile.html">
+            <button onclick="change_page('contacts-mobile.html')" type="button">
+                <h2>
                     Contacts
-                </a>
-            </h2>
-            <h2>
-                <a href="mainfesto-mobile.html">
+                </h2>
+            </button>
+            <button onclick="change_page('mainfesto-mobile.html')" type="button">
+                <h2>
                     Manifesto
-                </a>
-            </h2>
-            <h2>
-                <a href="shop-mobile.html">
+                </h2>
+            </button>
+            <button onclick="change_page('shop-mobile.html')" type="button">
+                <h2>
                     Shop
-                </a>
-            </h2>
+                </h2>
+            </button>
         </div>
         <div class="content">
             <h1>

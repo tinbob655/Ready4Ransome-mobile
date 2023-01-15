@@ -6,7 +6,7 @@
         </title>
         <link rel="stylesheet" href="styles-desktop.css"/>
         <script src="scripts.js"></script>
-        <audio id="audio" onended="next_track()">
+        <audio id="audio" onended="next_track('not first')">
             <source src="" type="audio/mp3"/>
         </audio>
     </head>
@@ -18,25 +18,25 @@
             <table>
                 <tr>
                     <th style="width: 33%;">
-                        <h2>
-                            <a href="contacts-desktop.html">
+                        <button onclick="change_page('contacts-desktop.html')" type="button">
+                            <h2>
                                 Contacts
-                            </a>
-                        </h2>
+                            </h2>
+                        </button>
                     </th>
                     <th style="width: 33%;">
-                        <h2>
-                            <a href="index.html">
+                        <button onclick="change_page('index.html')" type="button">
+                            <h2>
                                 Home
-                            </a>
-                        </h2>
+                            </h2>
+                        </button>
                     </th>
                     <th>
-                        <h2>
-                            <a href="shop-desktop.html">
+                        <button onclick="change_page('shop-desktop.html')" type="button">
+                            <h2>
                                 Shop
-                            </a>
-                        </h2>
+                            </h2>
+                        </button>
                     </th>
                 </tr>
             </table>
