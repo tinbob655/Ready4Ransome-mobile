@@ -172,6 +172,5 @@ window.onscroll = function scrolled() {
 };
 
 var gallery_num = 1;
-var track = Math.floor(Math.random() *2);
 
 init();
