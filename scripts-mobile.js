@@ -1,5 +1,5 @@
 function init() {
-    if (mobileCheck() == false || navigator.userAgentData.mobile == false) {
+    if (mobileCheck() == false || navigator.userAgentData.mobile == false) { //mobile detection and redirection
         var HTMLfilename = document.location.href;
         var filename = HTMLfilename.substring(HTMLfilename.lastIndexOf('/') + 1).replace('mobile', 'desktop');
         if (filename == 'index-desktop.html') {
@@ -7,26 +7,80 @@ function init() {
         };
         document.location = filename;
     };
-    if (document.location.href.substring(document.location.href.lastIndexOf('/') +1) != 'index-mobile.html') {
+    const locationn = document.location.href.substring(document.location.href.lastIndexOf('/') +1);
+    if (locationn == 'index-mobile.html' && sessionStorage.getItem('first load') == 'false') {    //introbox activation checker
         setTimeout(() => {
-            next_track()
+            document.getElementById('introbox').classList.add('cleared');
+            document.getElementById('menu-button-content').style.color = '#5dddcc';
+            setTimeout(() => {
+                document.getElementById('introbox').style.width = 0, height = 0;
+            }, 1001);
+        }, 1000);
+    };
+    if (locationn != 'index-mobile.html' || sessionStorage.getItem('first load') == 'false') { //music activation checker
+        setTimeout(() => {
+            if (sessionStorage.getItem('first load') == 'false') {
+                next_track('not first');
+            }
+            else {
+                next_track('first');
+            }
+            audio_fadin();
         }, 1000);
     };
 };
 
-function next_track() {
+function change_page(page) {
     const audio = document.getElementById('audio');
+    document.body.style.opacity = 0.0;
+    async function audio_fadeout() {
+        const timer2 = ms => new Promise (res => setTimeout(res, ms));
+        for (let volume = 0; volume <= 10; volume++) {
+            audio.volume = 1 - volume/10;
+            await timer2(100);
+        };
+        await timer2(100);
+        audio.volume = 0.0;
+        sessionStorage.setItem('audio duration', audio.currentTime);
+        audio.pause();
+        document.location = page;
+    };
+    audio_fadeout();
+};
+
+function next_track(type) {
+    const audio = document.getElementById('audio');
+    audio.load();
     audio.pause();
-    if (track%2 == 0) {
-        audio.src = 'music/R4R theme.mp3';
+    if (type == 'first') {
+        if (Math.round(Math.random()) == 0) {
+            audio.src = 'music/March Of Leader Ransome.mp3';
+        }
+        else {
+            audio.src = 'music/R4R theme.mp3';
+        };
     }
     else {
-        audio.src = 'music/March Of Leader Ransome.mp3';
+        audio.currentTime = sessionStorage.getItem('audio duration');
+        audio.src = sessionStorage.getItem('track');
     };
-    track++;
+    sessionStorage.setItem('track', audio.src);
     setTimeout(() => {
         audio.play();
     }, 500);
+};
+
+function audio_fadin() {
+    const audio = document.getElementById('audio');
+    async function a_fadin() {
+        const timer = milliseconds => new Promise(res => setTimeout(res, milliseconds));
+        for (let fader = 0; fader <= 10; fader++) {
+            audio.volume = fader/10;
+            await timer(200);
+        };
+        await timer(100);
+    };
+    a_fadin();
 };
 
 function header_toggled () {
@@ -36,10 +90,12 @@ function header_toggled () {
 function introbox_cleared() {
     document.getElementById('introbox').classList.add('cleared');
     document.getElementById('menu-button-content').style.color = '#5dddcc';
+    sessionStorage.setItem('first load', 'false');
     next_track();
     setTimeout(() => {
         document.getElementById('introbox').style.width = 0;
         document.getElementById('introbox').style.height = 0;
+        next_track('first');
     }, 1001);
 };
 
@@ -101,6 +157,5 @@ function mobileCheck() {     //massive mobile detection script
 };
 
 var gallery_num = 1;
-var track = Math.floor(Math.random() *2);
 
 init();

@@ -62,12 +62,12 @@ function next_track(type) {
         else {
             audio.src = 'music/R4R theme.mp3';
         };
-        sessionStorage.setItem('track', audio.src);
     }
     else if (type != 'first') {
         audio.currentTime = sessionStorage.getItem('audio duration');
         audio.src = sessionStorage.getItem('track');
     };
+    sessionStorage.setItem('track', audio.src);
     setTimeout(() => {
         audio.play();
     }, 500);
