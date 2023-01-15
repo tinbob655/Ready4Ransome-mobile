@@ -71,9 +71,9 @@ function gallery_refresh() {
 function gallery_move() {
     document.getElementById('gallery').style.opacity = 0.0;
     setTimeout(() => {
-        document.getElementById('image1').src = gallery_images[is_in_bounds(0, 9, gallery_num%10)];
-        document.getElementById('image2').src = gallery_images[is_in_bounds(0, 9, gallery_num%10 +1)];
-        document.getElementById('image3').src = gallery_images[is_in_bounds(0, 9, gallery_num%10 +2)];
+        document.getElementById('image1').src = gallery_images[is_in_bounds(0, gallery_images.length -1, gallery_num%gallery_images.length)];
+        document.getElementById('image2').src = gallery_images[is_in_bounds(0, gallery_images.length -1, gallery_num%gallery_images.length +1)];
+        document.getElementById('image3').src = gallery_images[is_in_bounds(0, gallery_images.length -1, gallery_num%gallery_images.length +2)];
         gallery_num++;
         setTimeout(() => {
             document.getElementById('gallery').style.opacity = 1.0;
