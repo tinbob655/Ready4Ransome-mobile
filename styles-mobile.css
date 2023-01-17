@@ -20,6 +20,14 @@ h2 {
     font-weight: 400;
     color: #a3d615;
     text-align: center;
+    margin: 0;
+    transition-property: color font-size;
+    transition-duration: 0.5s;
+}
+
+h2:hover {
+    color: #5dddcc;
+    font-size: 100px;
 }
 
 p {
@@ -33,13 +41,6 @@ p {
 a{
     color: inherit;
     text-decoration: none;
-    transition-property: color, font-size;
-    transition-duration: 0.5s;
-}
-
-a:hover {
-    color: #a5dbd4;
-    font-size: 100px;
 }
 
 div.header {
