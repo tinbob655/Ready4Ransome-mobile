@@ -50,16 +50,17 @@ div.header {
     z-index: 2;
     width: 100%;
     background-color: transparent;
-    max-height: 0;
+    transform: scaleY(0);
+    transform-origin: top;
     margin-right: auto;
     margin-left: auto;
-    transition-property: max-height background-color box-shadow;
+    transition-property: transform background-color box-shadow;
     transition-duration: 1s;
     overflow: hidden;
 }
 
 div.header.opened {
-    max-height: 100vh;
+    transform: scaleY(1);
     background-color: #2b2929;
     box-shadow: 0 1vh 10px 40px #2b2929;
 }
