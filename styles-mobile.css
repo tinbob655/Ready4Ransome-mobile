@@ -59,7 +59,7 @@ div.header {
 }
 
 div.header.opened {
-    height: 30vh;
+    height: unset;
     background-color: #2b2929;
     box-shadow: 0 1vh 10px 40px #2b2929;
 }
