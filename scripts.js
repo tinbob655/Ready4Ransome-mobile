@@ -19,72 +19,15 @@ function init() {
             }, 1001);
         }, 1000);
     };
-    if (location != 'index.html' || sessionStorage.getItem('first load') == 'false') { //music activation checker
-        setTimeout(() => {
-            if (sessionStorage.getItem('first load') == 'false') {
-                next_track('not first');
-            }
-            else {
-                next_track('first');
-            }
-            setTimeout(() => {
-                audio_fadin();
-            }, 100);
-        }, 1000);
-    };
+    sessionStorage.setItem('first load', 'false');
 };
 
 function change_page(page) {
-    const audio = document.getElementById('audio');
     document.body.style.opacity = 0.0;
-    async function audio_fadout() {
-        const timer = miliseconds => new Promise(res => setTimeout(res, miliseconds));
-        for (let volume = 0; volume <= 10; volume ++) {
-            audio.volume = 1 - volume/10;
-            await timer(100);
-        };
-        await timer(100);
-        audio.volume = 0.0;
-        sessionStorage.setItem('audio duration', audio.currentTime);
-        audio.pause();
-        document.location = page;
-    };
-    audio_fadout();
-};
-
-function next_track(type) {
-    const audio = document.getElementById('audio');
-    audio.load();
-    if (type == 'first') {
-        if (Math.round(Math.random) == 0) {
-            audio.src = 'music/March Of Leader Ransome.mp3';
-        }
-        else {
-            audio.src = 'music/R4R theme.mp3';
-        };
-    }
-    else if (type != 'first') {
-        audio.currentTime = sessionStorage.getItem('audio duration');
-        audio.src = sessionStorage.getItem('track');
-    };
-    sessionStorage.setItem('track', audio.src);
     setTimeout(() => {
-        audio.play();
-    }, 500);
+        document.location = page;
+    }, 2000);
 };
-
-function audio_fadin() {
-    const audio = document.getElementById('audio');
-    async function a_fadin() {
-        const timer2 = milliseconds => new Promise(res => setTimeout(res, milliseconds));
-        for (let fader = 0; fader <= 10; fader++) {
-            audio.volume = fader/10;
-            await timer2(200);
-        };
-        await timer2(100);
-    };
-    a_fadin();
-}
 
 function header_toggled() {
     document.getElementById('header').classList.toggle('open');
@@ -149,8 +92,6 @@ function gallery_move() {
 
 function introbox_cleared() {
     document.getElementById('introbox').classList.add('cleared');
-    sessionStorage.setItem('first load', 'false');
-    next_track('first');
 };
 
 function mobileCheck() {     //massive mobile detection script
