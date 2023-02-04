@@ -1,5 +1,6 @@
 function init() {
-    if (mobileCheck() == true || navigator.userAgentData.mobile == true) {  //mobile detection and redirection
+    //mobile detection and redirection
+    if (mobileCheck() == true || navigator.userAgentData.mobile == true) {
         var HTMLfilename = document.location.href;
         var filename = HTMLfilename.substring(HTMLfilename.lastIndexOf('/') + 1);
         if (filename = 'index.html') {
@@ -9,9 +10,25 @@ function init() {
             filename = filename.replace('desktop', 'mobile');
         };
         document.location = filename;
+        return(null);
     };
+
+    //apply favicon content
+    document.head.insertAdjacentHTML('beforeend', `
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon-stuff/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-stuff/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-stuff/favicon-16x16.png">
+        <link rel="manifest" href="/favicon-stuff/site.webmanifest">
+        <link rel="mask-icon" href="/favicon-stuff/safari-pinned-tab.svg" color="#2b2929">
+        <link rel="shortcut icon" href="/favicon-stuff/favicon.ico">
+        <meta name="msapplication-TileColor" content="#2b2929">
+        <meta name="msapplication-config" content="/favicon-stuff/browserconfig.xml">
+        <meta name="theme-color" content="#2b2929">`);
+
     const location = document.location.href.substring(document.location.href.lastIndexOf('/') +1);
-    if (location == 'index.html' && sessionStorage.getItem('first load') == 'false') {  //introbox activation checker
+
+    //introbox activation
+    if (location == 'index.html' && sessionStorage.getItem('first load') == 'false') {
         setTimeout(() => {
             document.getElementById('introbox').classList.add('cleared');
             setTimeout(() => {
