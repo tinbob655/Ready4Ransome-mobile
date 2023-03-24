@@ -1,13 +1,4 @@
 function init() {
-    //mobile detection and redirection
-    if (mobileCheck() == false || navigator.userAgentData.mobile == false) {
-        var HTMLfilename = document.location.href;
-        var filename = HTMLfilename.substring(HTMLfilename.lastIndexOf('/') + 1).replace('mobile', 'desktop');
-        if (filename == 'index-desktop.html') {
-            filename = 'index.html';
-        };
-        document.location = filename;
-    };
 
     //apply favicon content
     document.head.insertAdjacentHTML('beforeend', `
