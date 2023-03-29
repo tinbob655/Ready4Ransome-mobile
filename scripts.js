@@ -30,7 +30,7 @@ function changePage(destination) {
     sessionStorage.setItem('currentPage', destination);
     document.body.style.opacity = 0.0;
     setTimeout(() => {
-        document.location.href = destination;
+        document.location.href = destination + '.html';
     }, 1001);
 };
 
@@ -57,7 +57,7 @@ function pageSetup() {
 
     let pages = ['Home', 'Contacts', 'Manifesto', 'Shop'];
     for (let i = 0; i < pages.length; i++) {
-        if (pages[i] != sessionStorage.getItem('currentPage')) {
+        if (pages[i].toLowerCase() != sessionStorage.getItem('currentPage')) {
             headerHTML +=(`<button type="button" onclick="changePage('`+pages[i].toLowerCase() +`');">
     <h3>
         `+pages[i]+`
