@@ -1,16 +1,17 @@
+@import url('./hamburger.css');
+
 body {
 	 background-color: #2b2929;
 	 margin: 0;
 	 padding: 0;
 	 border: 0;
-	 visibility: hidden;
 	 opacity: 0.0;
 	 transition-property: opacity;
 	 transition-duration: 1s;
 }
 
- .hamburger {
-	 color: #1b9b9b;
+.hamburger {
+    color: #1b9b9b;
 }
 
  h1, h2, h3, p {
@@ -33,146 +34,144 @@ body {
 	 margin: 0;
 }
 
- h3 {
-	 font-family: tahoma;
-	 font-size: 45px;
-	 font-weight: 300;
-	 color: #9cd4cd;
-	 transition-property: transform color;
-	 transition-duration: 0.5s;
+h3 {
+	font-family: tahoma;
+	font-size: 45px;
+	font-weight: 300;
+	color: #9cd4cd;
+	transition-property: transform color;
+	transition-duration: 0.5s;
 }
- h3:hover {
-	 color: #a5dbd4;
-	 transform: scale(1.1, 1.1);
-}
-
- p {
-	 font-family: tahoma;
-	 font-size: 40px;
-	 font-weight: 200;
-	 color: #5dddcc;
+h3:hover {
+	color: #a5dbd4;
+	transform: scale(1.1, 1.1);
 }
 
- a {
-	 text-decoration: none;
-	 font-size: inherit;
+p {
+	font-family: tahoma;
+	font-size: 40px;
+	font-weight: 200;
+	color: #5dddcc;
 }
 
- button {
-	 padding: 0;
-	 margin: 0;
-	 border: none;
-	 background-color: transparent;
-	 width: 100%;
+a {
+	text-decoration: none;
+	font-size: inherit;
 }
- 
+
+button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+}
+
 button.menu {
-	 position: fixed;
-	 z-index: 99;
-	 left: 0;
-	 top: 0;
-	 width: unset;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: unset;
 }
 
- div {
-	 padding: 0;
-	 margin: auto;
-	 border: none;
-	 display: 'block';
+div {
+    padding: 0;
+    margin: auto;
+    border: none;
+    display: 'block';
 }
 
- div#header {
-	 margin: 3px 1.15%;
-	 position: fixed;
-	 top: 0;
-	 left: 0;
-	 width: calc(100%-(2*1.15%));
-	 height: auto;
-	 max-height: 0%;
-	 max-width: 0%;
-	 z-index: 98;
-	 opacity: 0;
-	 border-radius: 25px;
-	 box-shadow: 0 0 7px 0 #183c41;
-	 background-color: #183c41;
-	 transition-property: max-width opacity max-height;
-	 transition-duration: 0.75s;
-	 white-space: nowrap;
+div#header {
+    margin: 3px 1.15%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100%-(2*1.15%));
+    max-width: 0%;
+    height: 99vh;
+    z-index: 98;
+    opacity: 0;
+    border-radius: 25px;
+    box-shadow: 0 0 7px 0 #183c41;
+    background-color: #183c41;
+    transition-property: max-width opacity;
+    transition-duration: 0.75s;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
- div#header.shown {
-	 max-width: 100%;
-	 max-height: 50%;
-	 opacity: 0.95;
-}
-
- div#content {
-	 z-index: 1;
-	 margin: 50px auto 30px auto;
-	 padding-top: 25px !important;
-	 width: 75%;
-	 background-color: #464242;
-	 border-radius: 50px;
-	 padding: 10px;
+div#header.shown {
+    max-width: 50%;
+    opacity: 0.95;
 }
 
- div#footer {
-	 font-size: 20px;
-	 font-weight: 10;
-	 font-family: monospace;
-	 text-align: center;
-	 color: #fff;
-	 opacity: 0.6;
-	 z-index: -1;
-	 width: 100%;
-	 margin-bottom: 10px;
-	 word-wrap: break-word;
+div#content {
+    z-index: 1;
+    margin: 50px auto 30px auto;
+    padding-top: 25px !important;
+    width: 75%;
+    background-color: #464242;
+    border-radius: 50px;
+    padding: 10px;
 }
 
- div.contentSection {
-	 width: 85%;
-	 height: 0;
-	 border: 10px double #343435;
-	 border-radius: 20px;
-	 margin: 10px auto;
+div#footer {
+    font-size: 20px;
+    font-weight: 10;
+    font-family: monospace;
+    text-align: center;
+    color: #fff;
+    opacity: 0.6;
+    z-index: -1;
+    width: 100%;
+    margin-bottom: 10px;
+    word-wrap: break-word;
 }
 
- table {
-	 table-layout: fixed;
+div.contentSection {
+    width: 85%;
+    height: 0;
+    border: 10px double #343435;
+    border-radius: 20px;
+    margin: 10px auto;
 }
 
- table, thead, tr {
-	 width: 100%;
+table {
+    table-layout: fixed;
 }
 
- img {
-	 display: block;
-	 margin-left: auto;
-	 margin-right: auto;
-	 max-width: 100%;
+table, thead, tr {
+    width: 100%;
 }
 
- img.footerImage {
-	 border-radius: 50%;
-	 width: 90px;
-	 height: 90px;
-	 object-fit: cover;
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
 }
 
- img.small {
-	 width: 50px;
-	 height: 50px;
+img.footerImage {
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
 }
 
- img.rounded {
-	 border-radius: 50%;
+img.small {
+    width: 50px;
+    height: 50px;
 }
 
- .growOnHover {
-	 transition-property: transform;
-	 transition-duration: 0.5s;
+img.rounded {
+    border-radius: 50%;
 }
 
- .growOnHover:hover {
-	 transform: scale(1.1, 1.1);
+.growOnHover {
+    transition-property: transform;
+    transition-duration: 0.5s;
 }
- 
+
+.growOnHover:hover {
+    transform: scale(1.1, 1.1);
+}

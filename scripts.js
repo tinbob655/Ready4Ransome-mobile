@@ -1,3 +1,17 @@
+function init() {
+    if (sessionStorage.getItem('currentPage') == undefined) {   //setup sessionstorage on first load
+        sessionStorage.setItem('currentPage', 'home');
+    };
+    //deal with desktop uesrs
+    //isMobile() == false ? document.location.href = 'https://ready4ransome-react-vers.vercel.app/' : null; COMMENTED OUT
+    //load the scripted page content (footer, header, html head section)
+    pageSetup();
+
+    setTimeout(() => {
+        document.body.style.opacity = 1.0;
+    }, 100);
+};
+
 function isMobile() {
     if (mobileCheck() == true || navigator.userAgentData.mobile == true) {
         return true;
@@ -12,15 +26,8 @@ function mobileCheck() {     //massive mobile detection script
     return check;
 }
 
-function init() {
-    document.body.style.opacity = 1.0;
-    //deal with desktop uesrs
-    //isMobile() == false ? document.location.href = 'https://ready4ransome-react-vers.vercel.app/' : null; COMMENTED OUT
-    //load the scripted page content (footer, header, html head section)
-    pageSetup();
-};
-
 function changePage(destination) {
+    sessionStorage.setItem('currentPage', destination);
     document.body.style.opacity = 0.0;
     setTimeout(() => {
         document.location.href = destination;
@@ -39,16 +46,25 @@ function pageSetup() {
 
     //setup the header
     const header = document.getElementById('header');
+        //add the hamburger button
+    document.body.insertAdjacentHTML('afterbegin', `<button id="headerButton" class="menu hamburger hamburger--spring" type="button" onclick="document.getElementById('header').classList.toggle('shown'); this.classList.toggle('is-active');">
+    <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+    </span>
+</button>`);
+
     let headerHTML = '';
+
     let pages = ['Home', 'Contacts', 'Manifesto', 'Shop'];
     for (let i = 0; i < pages.length; i++) {
-        headerHTML +=(`<button type="button" onclick="changePage('`+pages[i] +`')">
+        if (pages[i] != sessionStorage.getItem('currentPage')) {
+            headerHTML +=(`<button type="button" onclick="changePage('`+pages[i].toLowerCase() +`');">
     <h3>
         `+pages[i]+`
     </h3>
 </button>\n`);
+        };
     };
-    console.log(headerHTML)
     header.innerHTML = headerHTML;
 };
 
