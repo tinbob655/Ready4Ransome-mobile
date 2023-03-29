@@ -6,10 +6,108 @@
         </title>
         <link rel="stylesheet" href="styles.css"/>
         <script defer src="scripts.js"></script>
+        <script>
+            const state = {
+                streamingServiesImages: [
+                    './images/logos/spotify logo.svg',
+                    './images/logos/reddit logo.svg',
+                    './images/logos/twitter logo.svg',
+                    './images/logos/youtube logo.svg',
+                    './images/logos/twitch logo.svg',
+                    './images/logos/paypal logo.svg',
+                    './images/logos/xbox logo.svg',
+                ],
+                streamingServicesDescriptions: [
+                    "Mr Ransome's Spotify",
+                    "Mr Ransome's Reddit",
+                    "Mr Ransome's Twitter",
+                    "Mr Ransome's YouTube",
+                    "Mr Ransome's Twitch",
+                    "Just search 'Hayden Ransome' on PayPal",
+                    "Just search 'Vinyl5five' on Xbox",
+                ],
+                streamingServiceLinks: [
+                    'https://open.spotify.com/artist/1dBbc3XltRauSX0dRpRUE6',
+                    'https://www.reddit.com/user/Vinyl5five/',
+                    'https://twitter.com/ItzVinyl5five',
+                    'https://youtube.com/@Vinyl5five',
+                    'https://www.twitch.tv/vinyl5five',
+                    'https://www.paypal.com/signin',
+                    'https://www.xbox.com/en-GB/live',
+                ],
+            };
+
+            function getContactsTable() {
+                let tableHTML = [];
+                for (let row = 0; row < state.streamingServicesDescriptions.length; row++) {
+                    tableHTML.push(`
+                        <tr>
+                            <td colSpan="2">
+                                <div class="contentSection"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            `+getTableRow(row)+`
+                        </tr>
+                    `);
+                };
+
+                return tableHTML;
+            };
+
+            function getStreamingServiceDescription(row) {
+                return (`
+                    <a target="_blank" href=`+state.streamingServiceLinks[row]+`>
+                        <h3>
+                            `+state.streamingServicesDescriptions[row]+`
+                        </h3>
+                    </a>
+                `);
+            };
+
+            function getStreamingServiceImage(row) {
+                return (`
+                    <a target="_blank" href="`+state.streamingServiceLinks[row]+`">
+                        <img src="`+state.streamingServiesImages[row]+`" class="growOnHover"/>
+                    </a>
+                `);
+            };
+
+            function getTableRow(row) {
+                if (row%2 == 0) {
+                    return (`
+                    <td>
+                        `+getStreamingServiceDescription(row)+`
+                    </td>
+                    <td>
+                        `+getStreamingServiceImage(row)+`
+                    </td>`);
+                } else return (`
+                <td>
+                    `+getStreamingServiceImage(row)+`
+                </td>
+                <td>
+                    `+getStreamingServiceDescription(row)+`
+                </td>`)
+            };
+
+            setTimeout(() => {
+                document.getElementById('tableTr').innerHTML = getContactsTable();
+            }, 1000);
+        </script>
     </head>
     <body>
         <div id="header"></div>
+        <h1>
+            Mr Ransome can be contacted, don't expect a half decent responce tho
+        </h1>
         <div id="content">
+            <h2>
+                Links to approx. several of Mr Ransome's contacts:
+            </h2>
+            <table id="tableTr">
+            </table>
+        </div>
         </div>
         <div id="footer"></div>
     </body>
