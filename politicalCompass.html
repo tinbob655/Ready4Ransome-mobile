@@ -5,11 +5,289 @@
             ready4ransome Political Compass Test
         </title>
         <link rel="stylesheet" href="styles.css"/>
+        <style>
+            p#question {
+                transition-property: opacity;
+                transition-duration: 0.5s;
+            }
+
+            div#testScreen {
+                transition-property: max-height;
+                transition-duration: 1s;
+                height: auto;
+                max-height: 0;
+                overflow-y: hidden;
+            }
+            div#testScreen.shown {
+                max-height: 200vh;
+            }
+
+            div#startScreen {
+                transition-property: max-height;
+                transition-duration: 0.75s;
+                max-height: 100vh;
+                height: auto;
+                overflow: hidden;
+            }
+            div#startScreen.hidden {
+                max-height: 0vh;
+                visibility: hidden;
+            }
+
+            button#startButton {
+                transition-property: transform;
+                transition-duration: 1s;
+            }
+            button#startButton:hover {
+                transform: scale(1.1, 1.1);
+            }
+
+            div#answerButtons {
+                z-index: 2;
+                transition-property: max-height;
+                transition-duration: 1s;
+                height: auto;
+                max-height: 100vh;
+            }
+            div#answerButtons.hidden {
+                max-height: 0;
+            }
+
+            button.answerButton {
+                font-family: monospace;
+                font-size: 20px;
+                font-weight: 500;
+                color: #2c2c2b;
+                width: 65%;
+                height: 75px;
+                border-radius: 20px;
+                margin: 20px auto;
+                border: 5px solid #343435;
+                display: block;
+                opacity: 0.75;
+                transition-property: opacity transform;
+                transition-duration: 0.5s;
+            }
+            button.answerButton:hover {
+                opacity: 1.0;
+                transform: scale(1.1, 1.1);
+            }
+            button.answerButton.stronglyAgree {
+                background-color: #7cf52b;
+            }
+            button.answerButton.agree {
+                background-color: #a0ff52;
+            }
+            button.answerButton.neutral {
+                background-color: #dddddd;
+            }
+            button.answerButton.disagree {
+                background-color: #f5b52b;
+            }
+            button.answerButton.stronglyDisagree {
+                background-color: #f55a2b;
+            }
+
+            p#question {
+                transition-property: max-height;
+                transition-duration: 0.75s;
+                max-height: 30vh;
+                height: auto;
+                overflow: hidden;
+            }
+            p#question.refreshing {
+                max-height: 0;
+            }
+
+            /*results section styles */
+            div#endScreen {
+                transition-property: max-height;
+                transition-duration: 1s;
+                overflow: hidden;
+                max-height: 0vh;
+                height: auto;
+            }
+            div#endScreen.shown {
+                max-height: 300vh;
+            }
+
+            div#politicalCompassResult {
+                height: 526px;
+                width: 474px;
+                background-image: url('./images/politicalCompassImage.png');
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            div#compassDot {
+                opacity: 0.0;
+                transition-property: opacity;
+                transition-duration: 0.5s;
+                position: absolute;
+                display: block;
+                margin: inherit;
+                border-radius: 50%;
+                background-color: red;
+                width: 25px;
+                height: 25px;
+                border: 5px solid #232324;
+            }
+            div#compassDot.shown {
+                opacity: 1.0;
+            }
+
+            div#conservativeProgressiveBar {
+                height: 100px;
+                border: 5px solid #232324;
+                border-radius: 10px;
+                width: 700px;
+                background-image: linear-gradient(to left, blue, red);
+            }
+
+            div#conservativeProgressiveLine {
+                opacity: 0.0;
+                transition-property: opacity;
+                transition-duration: 0.5s;
+                height: 100px;
+                border-radius: 5px;
+                width: 10px;
+                background-color: #232324;
+                z-index: 2;
+                position: absolute;
+                display: block;
+            }
+            div#conservativeProgressveLine.shown {
+                opacity: 1.0;
+            }
+
+            p.consProgBar {
+                font-family: monospace;
+                font-size: 25px;
+                color: #459b7e;
+                word-wrap: normal;
+                display: block;
+            }
+
+            button#shareButton {
+                transition-property: opacity;
+                transition-duration: 1s;
+                opacity: 1.0;
+            }
+            button#shareButton.hidden {
+                opacity: 0.0;
+                visibility: hidden;
+            }
+        </style>
         <script defer src="scripts.js"></script>
+        <script>
+            //load the first quesiton in a p id="question"
+            function startTest() {
+                //begin asking quesitons
+            };
+
+            function answerEntered(intensity, type) {
+                //intensity is 2, 1 or 0 depending on strongly or not, type will be  agree, disagree or neutral
+            };
+
+            function shareresults() {
+                //load and copy the user's results to the clipboard
+            };
+        </script>
     </head>
     <body>
         <div id="header"></div>
         <div id="content">
+            <div id="startScreen">
+                <h2>
+                    The all new ready4ransome political compass test!
+                </h2>
+                <div class="contentSection"></div>
+                <button type="button" id="startButton" onclick="startTest()">
+                    <p>
+                        Tap here to start the test!
+                    </p>
+                </button>
+            </div>
+            <div id="testScreen">
+                <p id="question"></p>
+                <div id="answerButtons">
+                    <table>
+                        <tr>
+                            <td>
+                                <button class="answerButton stronglyAgree" type="button" onclick="answerEntered(2, 'agree')">
+                                    Strongly Agree
+                                </button>
+                            </td>
+                            <td>
+                                <button class="answerButton agree" type="button" onclick="answerEntered(1, 'agree')">
+                                    Agree
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button class="answerButton neutral" type="button" onclick="answerEntered(0, 'neutral')">
+                                    Neutral
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="answerButton disagree" type="button" onclick="answerEntered(1, 'disagree')">
+                                    Disagree
+                                </button>
+                            </td>
+                            <td>
+                                <button class="answerButton stronglyDisagree" type="button" onclick="answerEntered(2, 'disagree')">
+                                    Strongly Disagree
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="endScreen">
+                <h2>
+                    The results:
+                </h2>
+
+                <div class="contentSection"></div>
+                <p>
+
+                    The red dot is where you lie on the political compass
+                </p>
+                <div id="politicalCompassResult">   <!--political compass render-->
+                    <div id="compassDot"></div>
+                </div>
+
+                <div class="contentSection"></div>
+
+                <p>
+                    This is how conservative / Progressive you are:
+                </p>
+                <div id="conservativeProgressiveBar">   <!--conservative progressive bar render-->
+                    <div id="conservativeProgressiveLine"></div>
+                </div>
+                <table>
+                    <tr>
+                        <td>
+                            <p class="consProgBar" style="text-align: left; float: left;">
+                                Progressive
+                            </p>
+                        </td>
+                        <td>
+                            <p class="consProgBar" style="text-align: right; float: right;">
+                                Conservative
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <button type="button" id="shareButton" onclick="shareResults()">
+                    <h3>
+                        Tap to copy results
+                    </h3>
+                </button>
+            </div>
         </div>
         <div id="footer"></div>
     </body>
