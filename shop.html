@@ -5,11 +5,152 @@
             ready4ransome Shop
         </title>
         <link rel="stylesheet" href="styles.css"/>
+        <style>
+            .galleryWrapper{
+                background-color: #676768;
+                border-radius: 50px;
+                box-shadow: 0 0 10px 0 #676768;
+                padding: 0 20px;
+                width: 90%;
+                display: block;
+                margin: 10px auto 0 auto;
+            }
+
+            .galleryImage {
+                width: min-content;
+                height: auto;
+            }
+
+            .buttonImage {
+                width: 75px;
+                height: 75px;
+            }
+
+            .imagesWrapper {
+                transition-property: opacity;
+                transition-duration: 0.5s;
+                width: 100%;
+                display: block;
+                margin: auto;
+            }
+        </style>
         <script defer src="scripts.js"></script>
+        <script>
+            const merchImages = [
+                './images/merch/black hoodie.webp',
+                './images/merch/black long sleeve t-shirt.webp',
+                './images/merch/Black t-shirt.webp',
+                './images/merch/blue t-shirt.webp',
+                './images/merch/R4R hoodie.webp',
+                './images/merch/Todd is bad at golf t-shirt.webp',
+                './images/merch/tote bag.webp',
+                './images/merch/White Hoodie.webp',
+                './images/merch/white long sleeve t-shirt.webp',
+                './images/merch/white t-shirt.webp', 
+            ];
+            var galleryNum = 0;
+            const gallery = document.getElementById('imagesWrapper');
+
+            function refreshGallery() {
+                if (galleryNum%10 != 0) {
+                    document.getElementById('imagesWrapper').style.opacity = 0.0;
+                    setTimeout(() => {
+                        for (let i = 0; i < 3; i++) {
+                            document.getElementById('image'+i).src = merchImages[i];
+                        };
+                        document.getElementById('imagesWrapper').style.opacity = 1.0;
+                        galleryNum = 0;
+                    }, 501);
+                };
+            };
+            
+            function isInBounds(min, max, input) {
+                if (input > max) {
+                    let difference = input - max -1;
+                    return min + difference
+                } 
+                else if (input < min) {
+                    let difference = min - input -1;
+                    return max - difference
+                } 
+                else {
+                    return input
+                };
+            };
+
+            function moveGallery() {
+                document.getElementById('imagesWrapper').style.opacity = 0.0;
+                galleryNum++;
+                setTimeout(() => {
+                    for (let i = 0; i < 3; i++) {
+                        document.getElementById('image'+i).src = merchImages[isInBounds(0, merchImages.length-1, (galleryNum%(merchImages.length)) +i)];
+                    };
+
+                    document.getElementById('imagesWrapper').style.opacity = 1.0;
+                }, 501);
+            };
+        </script>
     </head>
     <body>
         <div id="header"></div>
+        <h1>
+            Big merch (some say too big)
+        </h1>
         <div id="content">
+            <h2>
+                Buy the merch, or suffer the consequences
+            </h2>
+            <div id="galleryWrapper" class="galleryWrapper">
+                <p>
+                Ready4Ransome have partenered up with NewRinaldi. This is 100% absolutley not because they were made by the same
+                2 people its a different reason
+                </p>
+                <div className="contentSection"></div>.
+                <table style="table-layout: unset;">
+                    <thead>
+                        <tr>
+                            <td style="width: 10%;">        <!--Refresh Button-->
+                                <button type="button" onClick="refreshGallery()">
+                                    <img src="./images/interactive elements/refresh.png" class="buttonImage"/>
+                                </button>
+                            </td>
+                            <td style="width: 80%;">
+                                <div id="imagesWrapper" class="imagesWrapper">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <td style="width: 27.5%;">        <!-- image 0 -->
+                                                    <img src="./images/Merch/black hoodie.webp" class="galleryImage" id="image0"/>
+                                                </td>
+
+                                                <td style="width: 45%;">        <!-- image 1 -->
+                                                    <img src="./images/Merch/black long sleeve t-shirt.webp" class="galleryImage"
+                                                     id="image1"/>
+                                                </td>
+                                                
+                                                <td style="width: 27.5%;">        <!-- image 2 -->
+                                                    <img src="./images/Merch/Black t-shirt.webp" class="galleryImage" id="image2"/>
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </td>
+                            <td style="width: 10%;">        <!--Naviagte button-->
+                                <button type="button" onClick="moveGallery()">
+                                    <img src="./images/interactive elements/right arrow.png" class="buttonImage"/>
+                                </button>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <a href="https://www.newrinaldi.site/merch.html" target="_blank">
+                <h3>
+                    Get ya merch here <br/> (and other NewRinaldi stuff)
+                </h3>
+            </a>
+        </div>
         </div>
         <div id="footer"></div>
     </body>
