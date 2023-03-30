@@ -83,16 +83,18 @@ div {
 }
 
 div#header {
-    margin: 3px 1.15%;
+    margin: 3px 0;
     position: fixed;
     top: 0;
     left: 0;
-    width: calc(100%-(2*1.15%));
+    width: 50%;
     max-width: 0%;
-    height: min-content;
+    top: 10vh;
+    height: 75%;
     z-index: 98;
     opacity: 0;
-    border-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
     box-shadow: 0 0 7px 0 #183c41;
     background-color: #183c41;
     transition-property: max-width opacity;
@@ -103,6 +105,9 @@ div#header {
 div#header.shown {
     max-width: 50%;
     opacity: 0.95;
+}
+div#header::-webkit-scrollbar {
+    width: 0;
 }
 
 div#content {
