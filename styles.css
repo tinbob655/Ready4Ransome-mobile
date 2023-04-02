@@ -12,6 +12,7 @@ body {
 
 .hamburger {
     color: #1b9b9b;
+    transform: scale(2, 2);
 }
 
  h1, h2, h3, p {
@@ -90,7 +91,7 @@ div#header {
     width: 50%;
     max-width: 0%;
     top: 10vh;
-    height: 75%;
+    height: auto;
     z-index: 98;
     opacity: 0;
     border-top-right-radius: 25px;
