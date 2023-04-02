@@ -14,6 +14,7 @@
                 width: 90%;
                 display: block;
                 margin: 10px auto 0 auto;
+                padding-bottom: 20px;
             }
 
             .galleryImage {
@@ -26,7 +27,7 @@
                 height: 75px;
             }
 
-            .imagesWrapper {
+            div#imagesWrapper {
                 transition-property: opacity;
                 transition-duration: 0.5s;
                 width: 100%;
@@ -105,45 +106,25 @@
                 Ready4Ransome have partenered up with NewRinaldi. This is 100% absolutley not because they were made by the same
                 2 people its a different reason
                 </p>
-                <div className="contentSection"></div>.
-                <table style="table-layout: unset;">
-                    <thead>
-                        <tr>
-                            <td style="width: 10%;">        <!--Refresh Button-->
-                                <button type="button" onClick="refreshGallery()">
-                                    <img src="./images/interactive elements/refresh.png" class="buttonImage"/>
-                                </button>
-                            </td>
-                            <td style="width: 80%;">
-                                <div id="imagesWrapper" class="imagesWrapper">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <td style="width: 27.5%;">        <!-- image 0 -->
-                                                    <img src="./images/Merch/black hoodie.webp" class="galleryImage" id="image0"/>
-                                                </td>
+                <div class="contentSection"></div>
+                <button type="button" onClick="refreshGallery()">   <!--refresh button-->
+                    <img src="./images/interactive elements/refresh.png" class="buttonImage"/>
+                </button>
 
-                                                <td style="width: 45%;">        <!-- image 1 -->
-                                                    <img src="./images/Merch/black long sleeve t-shirt.webp" class="galleryImage"
-                                                     id="image1"/>
-                                                </td>
-                                                
-                                                <td style="width: 27.5%;">        <!-- image 2 -->
-                                                    <img src="./images/Merch/Black t-shirt.webp" class="galleryImage" id="image2"/>
-                                                </td>
-                                            </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                            </td>
-                            <td style="width: 10%;">        <!--Naviagte button-->
-                                <button type="button" onClick="moveGallery()">
-                                    <img src="./images/interactive elements/right arrow.png" class="buttonImage"/>
-                                </button>
-                            </td>
-                        </tr>
-                    </thead>
-                </table>
+                <div id="imagesWrapper">
+                    <div class="contentSection"></div>
+                    <img src="./images/Merch/black hoodie.webp" class="galleryImage" id="image0"/>  <!--first gallery image-->
+                    <div class="contentSection"></div>
+                    <img src="./images/Merch/black long sleeve t-shirt.webp" class="galleryImage"id="image1"/> <!--second gallery image-->
+                    <div class="contentSection"></div>
+                    <img src="./images/Merch/Black t-shirt.webp" class="galleryImage" id="image2"/> <!--third gallery imgae-->
+                    <div class="contentSection"></div>
+                </div>
+
+                <button type="button" onClick="moveGallery()">  <!--move gallery button-->
+                    <img src="./images/interactive elements/down arrow.png" class="buttonImage"/>
+                </button>
+                <div class="contentSection"></div>
             </div>
             <a href="https://www.newrinaldi.site/merch.html" target="_blank">
                 <h3>
