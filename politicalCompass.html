@@ -6,11 +6,6 @@
         </title>
         <link rel="stylesheet" href="styles.css"/>
         <style>
-            p#question {
-                transition-property: opacity;
-                transition-duration: 0.5s;
-            }
-
             div#testScreen {
                 transition-property: max-height;
                 transition-duration: 1s;
@@ -25,13 +20,12 @@
             div#startScreen {
                 transition-property: max-height;
                 transition-duration: 0.75s;
-                max-height: 100vh;
+                max-height: 200vh;
                 height: auto;
                 overflow: hidden;
             }
             div#startScreen.hidden {
                 max-height: 0vh;
-                visibility: hidden;
             }
 
             button#startButton {
@@ -89,14 +83,17 @@
             }
 
             p#question {
+                font-size: 30px;
+                font-family: monospace;
+                opacity: 1.0;
+                max-height: 30vh;
                 transition-property: max-height;
                 transition-duration: 0.75s;
-                max-height: 30vh;
                 height: auto;
                 overflow: hidden;
             }
             p#question.refreshing {
-                max-height: 0;
+                max-height: 0vh;
             }
 
             /*results section styles */
@@ -108,12 +105,12 @@
                 height: auto;
             }
             div#endScreen.shown {
-                max-height: 300vh;
+                max-height: 400vh;
             }
 
             div#politicalCompassResult {
-                height: 526px;
-                width: 474px;
+                width: 50vw;
+                height: 55vw;
                 background-image: url('./images/politicalCompassImage.png');
                 background-size: cover;
                 background-repeat: no-repeat;
@@ -124,13 +121,13 @@
                 transition-property: opacity;
                 transition-duration: 0.5s;
                 position: absolute;
-                display: block;
+                display: inline;
                 margin: inherit;
                 border-radius: 50%;
                 background-color: red;
-                width: 25px;
-                height: 25px;
-                border: 5px solid #232324;
+                width: 2.5vw;
+                height: 2.5vw;
+                border: 5px solid #343435;
             }
             div#compassDot.shown {
                 opacity: 1.0;
@@ -140,7 +137,7 @@
                 height: 100px;
                 border: 5px solid #232324;
                 border-radius: 10px;
-                width: 700px;
+                width: 50vw;
                 background-image: linear-gradient(to left, blue, red);
             }
 
@@ -156,7 +153,7 @@
                 position: absolute;
                 display: block;
             }
-            div#conservativeProgressveLine.shown {
+            div#conservativeProgressiveLine.shown {
                 opacity: 1.0;
             }
 
@@ -180,17 +177,273 @@
         </style>
         <script defer src="scripts.js"></script>
         <script>
-            //load the first quesiton in a p id="question"
+            var opinions = {
+                left: 0,
+                right: 0,
+                lib: 0,
+                auth: 0,
+                prog: 0,
+                cons: 0,
+            };
+            const baseQuestions = {
+                leftOrRightQuestions: {
+            q1: {
+                question: "The government should have more control over the economy?",
+                agree: "left",
+                disagree: "right"
+            },
+            q2: {
+                question: "People should work collectively rather than individually?",
+                agree: "left",
+                disagree: "right"
+            },
+            q3: {
+                question: "All healthcare should cost money?",
+                agree: "right",
+                disagree: "left"
+            },
+            q4: {
+                question: "Taxes on the wealthier 50% of society should be higher?",
+                agree: "left",
+                disagree: "right"
+            },
+            q5: {
+                question: "We should allow more immigrants to enter our country?",
+                agree: "left",
+                disagree: "right"
+            },
+            q6: {
+                question: "Abortion should be made illegal?",
+                agree: "right",
+                disagree: "left"
+            },
+            q7: {
+                question: "Gun ownership should be made legal?",
+                agree: "right",
+                disagree: "left"
+            },
+            q8: {
+                question: "Climate change is the biggest threat to modern society?",
+                agree: "left",
+                disagree: "right"
+            },
+            q9: {
+                question: "Defence budgets should be increased?",
+                agree: "right",
+                disagree: "left"
+            },
+            q10: {
+                question: "Fracking should be made illegal?",
+                agree: "left",
+                disagree: "right"
+            }
+        },
+
+                authoritarianOrLibertarianQuestions: {
+            q1: {
+                question: "The government should be allowed to collect as much data as they please?",
+                agree: "auth",
+                disagree: "lib"
+            },
+            q2: {
+                question: "Media censorship should be heavily reduced?",
+                agree: "lib",
+                disagree: "auth"
+            },
+            q3: {
+                question: "The number of cameras the government use should be increased?",
+                agree: "auth",
+                disagree: "lib"
+            },
+            q4: {
+                question: "Law enforcement should be much stricter?",
+                agree: "auth",
+                disagree: "lib"
+            },
+            q5: {
+                question: "People should be allowed to make their own choices on what they intake?",
+                agree: "lib",
+                disagree: "auth"
+            },
+            q6: {
+                question: "Individual rights should be protected at the expense of corporations?",
+                agree: "lib",
+                disagree: "auth"
+            },
+            q7: {
+                question: "People should be able to buy what they want online?",
+                agree: "lib",
+                disagree: "auth"
+            },
+            q8: {
+                question: "The government should control everyone's wages?",
+                agree: "auth",
+                disagree: "lib"
+            },
+            q9: {
+                question: "The population demographic should be controlled by the state?",
+                agree: "auth",
+                disagree: "lib"
+            },
+            q10: {
+                question: "People should have the right to join workers unions?",
+                agree: "lib",
+                disagree: "auth"
+            }
+        },
+
+                conservativeOrProgressiveQuestions: {
+            q1: {
+                question: "Gender roles are a good idea and benefit society?",
+                agree: "cons",
+                disagree: "prog"
+            },
+            q2: {
+                question: "The environment must be protected at all costs?",
+                agree: "prog",
+                disagree: "cons"
+            },
+            q3: {
+                question: "People of all religions should be accepted?",
+                agree: "prog",
+                disagree: "cons"
+            },
+            q4: {
+                question: "The minimum age for gender transition surgery should be increased?",
+                agree: "cons",
+                disagree: "prog"
+            },
+            q5: {
+                question: "Institutional racism and homophobia are still problems today?",
+                agree: "prog",
+                disagree: "cons"
+            },
+            q6: {
+                question: "There are two genders?",
+                agree: "cons",
+                disagree: "prog"
+            },
+            q7: {
+                question: "Homosexuality should be accepted in society?",
+                agree: "prog",
+                disagree: "cons"
+            },
+            q8: {
+                question: "Racial equality is a vital part of society?",
+                agree: "prog",
+                disagree: "cons"
+            },
+            q9: {
+                question: "The gender pay gap is as a result of reasons other than male oppression?",
+                agree: "cons",
+                disagree: "prog"
+            },
+            q10: {
+                question: "Women are capable of doing anything men are capable of doing?",
+                agree: "prog",
+                disagree: "cons"
+            }
+        }
+            };
+            //get the questions from baseQuestions
+            var obtainedQuestions = [];
+            let types = ['leftOrRightQuestions', 'authoritarianOrLibertarianQuestions', 'conservativeOrProgressiveQuestions'];
+            for (let type = 0; type < 3; type++) {
+                for (let q = 1; q <= 10; q++) {
+                    obtainedQuestions.push(baseQuestions[types[type]]['q'+q])
+                };
+            };
+            //now randomly order the questions
+            var questions = [];
+            while (questions.length < 30) {
+                let index = Math.floor(Math.random() * 30);
+                if (!questions.includes(obtainedQuestions[index])) {
+                    questions.push(obtainedQuestions[index])
+                };
+            };
+
             function startTest() {
-                //begin asking quesitons
+                //load the first question
+                document.getElementById('question').innerText = questions[0].question;
+                //hide the intro div and show the questions div
+                document.getElementById('startScreen').classList.add('hidden');
+                setTimeout(() => {
+                    document.getElementById('startScreen').style.visibility = 'hidden';
+                    document.getElementById('testScreen').classList.add('shown');
+                }, 751);
+            };
+
+            var questionNo = 0;
+            function askQuestion() {
+                questionNo++;
+                if (questionNo >= 30) { //if all of the questions have been asked then end the game, else ask the next quesiton
+                    testEnded();
+                } else {
+                    //hide the buttons
+                    const question = document.getElementById('question');
+                    question.classList.add('refreshing');
+                    setTimeout(() => {
+                        //change the question, then show the buttons
+                        question.innerText = questions[questionNo].question;
+                        question.classList.remove('refreshing');
+                    }, 751);
+                };
             };
 
             function answerEntered(intensity, type) {
-                //intensity is 2, 1 or 0 depending on strongly or not, type will be  agree, disagree or neutral
+                //update the opinions
+                opinions[questions[questionNo][type]] += intensity;
+                //ask the next question
+                askQuestion();
+            };
+            
+            function testEnded() {
+                //this will fire when the test is done, hide div id="testScreen" and load div id="endScreen"
+                //hide the test screen and load the end Screen
+                document.getElementById('testScreen').classList.remove('shown');
+                setTimeout(() => {
+                    document.getElementById('endScreen').classList.add('shown');
+                }, 1001);
+
+                //load the compass dot
+                const compassWidth = document.getElementById('politicalCompassResult').clientWidth;
+                const compassHeight = document.getElementById('politicalCompassResult').clientHeight;
+                const compassDot = document.getElementById('compassDot');
+                //don't question the next two lines, they just work I got no focking clue how
+                compassDot.style.marginTop = String(((opinions.lib * (compassHeight/28)) - (opinions.auth * (compassHeight/28))) + ((compassHeight/2) - (compassHeight/28))) + 'px';
+                compassDot.style.marginLeft = String(((opinions.right * (compassHeight/27)) - (opinions.left * (compassHeight/27))) + ((compassHeight/2) - (compassHeight/13.2))) + 'px';
+
+                //load the cons prog line
+                const consProgLine = document.getElementById('conservativeProgressiveLine');
+                const consProgBarWidth = document.getElementById('conservativeProgressiveBar').clientWidth;
+                //once again, no focking clue how the next line works, just kinda does (lol)
+                consProgLine.style.marginLeft = String(((opinions.cons * (consProgBarWidth/22)) - (opinions.prog * (consProgBarWidth/22))) + (consProgBarWidth/2)) + 'px';
+
+                //render the dot and bar
+                setTimeout(() => {
+                    compassDot.classList.add('shown');
+                    consProgLine.classList.add('shown');
+                }, 1500);
             };
 
-            function shareresults() {
-                //load and copy the user's results to the clipboard
+            function shareResults() {
+                //hide the share button
+                document.getElementById('shareButton').classList.add('hidden');
+                //define a method for copying text to clipboard
+                async function copyTextToClipboard(text) {
+                    if ('clipboard' in navigator) {
+                        return await navigator.clipboard.writeText(text);
+                    } else {
+                        return document.execCommand('copy', true, text);
+                    };
+                };
+
+                //create the results text to be copied
+                let results = 'I took the ready4randome political compass test at:\nhttps://www.newrinaldi.site\nI am a:\n';
+                results += opinions.left >= opinions.right ? 'Left-wing ' : 'Right wing ';
+                results += opinions.auth >= opinions.lib ? 'Autho-' : 'Libero-';
+                results += opinions.cons >= opinions.prog ? 'conservative' : 'progressive';
+                copyTextToClipboard(results);
             };
         </script>
     </head>
@@ -210,6 +463,7 @@
             </div>
             <div id="testScreen">
                 <p id="question"></p>
+                <div class="contentSection"></div>
                 <div id="answerButtons">
                     <table>
                         <tr>
