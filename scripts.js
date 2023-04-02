@@ -3,7 +3,7 @@ function init() {
         sessionStorage.setItem('currentPage', 'home');
     };
     //deal with desktop uesrs
-    isMobile() == false ? document.location.href = 'https://ready4ransome-react-vers.vercel.app/' : null;
+    //isMobile() == false ? document.location.href = 'https://ready4ransome-react-vers.vercel.app/' : null;
     //load the scripted page content (footer, header, html head section)
     pageSetup();
 
