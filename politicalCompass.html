@@ -36,12 +36,14 @@
                 transform: scale(1.1, 1.1);
             }
 
+            /*Answer button styles */
             div#answerButtons {
                 z-index: 2;
                 transition-property: max-height;
                 transition-duration: 1s;
                 height: auto;
                 max-height: 100vh;
+                overflow: hidden;
             }
             div#answerButtons.hidden {
                 max-height: 0;
@@ -49,11 +51,11 @@
 
             button.answerButton {
                 font-family: monospace;
-                font-size: 20px;
+                font-size: 40px;
                 font-weight: 500;
                 color: #2c2c2b;
                 width: 65%;
-                height: 75px;
+                height: 100px;
                 border-radius: 20px;
                 margin: 20px auto;
                 border: 5px solid #343435;
@@ -71,12 +73,14 @@
             }
             button.answerButton.agree {
                 background-color: #a0ff52;
+                margin-left: 10%;
             }
             button.answerButton.neutral {
                 background-color: #dddddd;
             }
             button.answerButton.disagree {
                 background-color: #f5b52b;
+                margin-right: 10%;
             }
             button.answerButton.stronglyDisagree {
                 background-color: #f55a2b;
@@ -465,39 +469,21 @@
                 <p id="question"></p>
                 <div class="contentSection"></div>
                 <div id="answerButtons">
-                    <table>
-                        <tr>
-                            <td>
-                                <button class="answerButton stronglyAgree" type="button" onclick="answerEntered(2, 'agree')">
-                                    Strongly Agree
-                                </button>
-                            </td>
-                            <td>
-                                <button class="answerButton agree" type="button" onclick="answerEntered(1, 'agree')">
-                                    Agree
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <button class="answerButton neutral" type="button" onclick="answerEntered(0, 'neutral')">
-                                    Neutral
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button class="answerButton disagree" type="button" onclick="answerEntered(1, 'disagree')">
-                                    Disagree
-                                </button>
-                            </td>
-                            <td>
-                                <button class="answerButton stronglyDisagree" type="button" onclick="answerEntered(2, 'disagree')">
-                                    Strongly Disagree
-                                </button>
-                            </td>
-                        </tr>
-                    </table>
+                    <button class="answerButton stronglyAgree" type="button" onclick="answerEntered(2, 'agree')">
+                        Strongly Agree
+                    </button>
+                    <button class="answerButton agree" type="button" onclick="answerEntered(1, 'agree')">
+                        Agree
+                    </button>
+                    <button class="answerButton neutral" type="button" onclick="answerEntered(0, 'neutral')">
+                        Neutral
+                    </button>
+                    <button class="answerButton disagree" type="button" onclick="answerEntered(1, 'disagree')">
+                        Disagree
+                    </button>
+                    <button class="answerButton stronglyDisagree" type="button" onclick="answerEntered(2, 'disagree')">
+                        Strongly Disagree
+                    </button>
                 </div>
             </div>
             <div id="endScreen">
